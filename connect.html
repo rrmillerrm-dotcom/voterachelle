@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Get Involved · People to Elect Rachelle Miller</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Inter',sans-serif;background:#fff;color:#000;}
+nav{background:#000;display:flex;align-items:center;justify-content:center;padding:0.75rem 2rem;flex-wrap:wrap;gap:0.5rem;position:sticky;top:0;z-index:100;}
+.nav-links{display:flex;gap:1.5rem;list-style:none;flex-wrap:wrap;justify-content:center;}
+.nav-links a{color:#fff;text-decoration:none;font-size:0.85rem;font-weight:600;letter-spacing:0.05em;text-transform:uppercase;}
+.nav-links a:hover,.nav-links a.active{color:#CC0000;}
+.page-header{background:#CC0000;padding:3rem 2rem;text-align:center;}
+.page-header h1{font-family:'Playfair Display',serif;font-size:clamp(2rem,5vw,3.2rem);font-weight:900;color:#fff;line-height:1.1;}
+.page-header p{color:rgba(255,255,255,0.85);font-size:1rem;margin-top:0.75rem;max-width:50ch;margin-left:auto;margin-right:auto;line-height:1.6;}
+.content{max-width:600px;margin:0 auto;padding:4rem 2rem;}
+h2{font-family:'Playfair Display',serif;font-size:clamp(1.6rem,3vw,2.2rem);color:#000;margin-bottom:0.75rem;}
+.intro{color:#555;font-size:1rem;margin-bottom:2rem;line-height:1.7;}
+.form-group{display:flex;flex-direction:column;gap:0.5rem;margin-bottom:1.25rem;}
+.form-group label{font-size:0.85rem;font-weight:600;color:#000;}
+.form-group input{padding:0.85rem 1.2rem;border:1.5px solid #ddd;border-radius:3px;font-size:0.95rem;font-family:'Inter',sans-serif;color:#000;}
+.form-group input:focus{outline:2px solid #CC0000;border-color:#CC0000;}
+.checkboxes{margin:1.5rem 0;}
+.checkboxes p{font-size:0.85rem;font-weight:600;color:#000;margin-bottom:0.75rem;}
+.checkbox-group{display:flex;flex-direction:column;gap:0.65rem;}
+.checkbox-group label{display:flex;align-items:center;gap:0.65rem;font-size:0.95rem;color:#333;cursor:pointer;}
+.checkbox-group input[type="checkbox"]{width:1.1rem;height:1.1rem;accent-color:#CC0000;cursor:pointer;}
+.btn-primary{background:#CC0000;color:#fff;padding:0.9rem 2.2rem;font-size:0.95rem;font-weight:700;border-radius:3px;font-family:'Inter',sans-serif;border:none;cursor:pointer;width:100%;margin-top:0.5rem;}
+.form-confirm{display:none;margin-top:1.5rem;padding:1.25rem;background:#f0fff0;border-left:3px solid #00a000;border-radius:0 4px 4px 0;font-size:0.95rem;color:#006000;}
+footer{background:#CC0000;padding:1.5rem 2rem;text-align:center;margin-top:4rem;}
+footer p{font-size:0.82rem;color:#fff;}
+@media(max-width:600px){.content{padding:3rem 1.5rem;}}
+</style>
+</head>
+<body>
+<nav>
+  <ul class="nav-links">
+    <li><a href="/">Home</a></li>
+    <li><a href="/datacenters.html">Data Centers</a></li>
+    <li><a href="/donate.html">Donate</a></li>
+    <li><a href="/about.html">About</a></li>
+    <li><a href="/vote.html">How to Vote</a></li>
+    <li><a href="/connect.html" class="active">Get Involved</a></li>
+  </ul>
+</nav>
+<div class="page-header">
+  <h1>Stay in this with us.</h1>
+  <p>Sign up and tell us how you want to help. Every name matters before August 4.</p>
+</div>
+<div class="content">
+  <h2>Count me in.</h2>
+  <p class="intro">Tell us who you are and how you want to get involved. We will be in touch.</p>
+  <div class="form-group">
+    <label for="field-name">Your name</label>
+    <input type="text" id="field-name" placeholder="Full name" autocomplete="name">
+  </div>
+  <div class="form-group">
+    <label for="field-email">Your email</label>
+    <input type="email" id="field-email" placeholder="Email address" autocomplete="email">
+  </div>
+  <div class="checkboxes">
+    <p>I want to:</p>
+    <div class="checkbox-group">
+      <label><input type="checkbox" id="cb-volunteer"> Volunteer</label>
+      <label><input type="checkbox" id="cb-endorse"> Endorse Rachelle</label>
+      <label><input type="checkbox" id="cb-spread"> Spread the word</label>
+      <label><input type="checkbox" id="cb-donate"> Donate</label>
+    </div>
+  </div>
+  <button class="btn-primary" onclick="handleSignup()">Count me in</button>
+  <div class="form-confirm" id="form-confirm">You are in. We will be in touch before August 4.</div>
+</div>
+<footer>
+  <p>Paid for by People to Elect Rachelle Miller · PO Box 236, Liberty Lake WA 99019</p>
+</footer>
+<script>
+async function handleSignup(){
+  const name=document.getElementById('field-name').value.trim();
+  const email=document.getElementById('field-email').value.trim();
+  if(!name||!email){alert('Please enter your name and email.');return;}
+  const interests=[];
+  if(document.getElementById('cb-volunteer').checked) interests.push('Volunteer');
+  if(document.getElementById('cb-endorse').checked) interests.push('Endorse');
+  if(document.getElementById('cb-spread').checked) interests.push('Spread the word');
+  if(document.getElementById('cb-donate').checked) interests.push('Donate');
+  try{await fetch('https://formspree.io/f/mojoezlp',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({name,email,interests:interests.join(', ')})});}catch(e){}
+  document.querySelector('.content').style.opacity='0.5';
+  document.querySelector('.content').style.pointerEvents='none';
+  document.getElementById('form-confirm').style.display='block';
+}
+</script>
+</body>
+</html>
