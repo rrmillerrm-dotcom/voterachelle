@@ -32,9 +32,68 @@ h2{font-family:'Playfair Display',serif;font-size:clamp(1.6rem,3vw,2.2rem);color
 footer{background:#CC0000;padding:1.5rem 2rem;text-align:center;margin-top:4rem;}
 footer p{font-size:0.82rem;color:#fff;}
 @media(max-width:600px){.content{padding:3rem 1.5rem;}}
+.blue-name{color:#002868;font-weight:700;}
 </style>
 </head>
 <body>
+<nav>
+  <ul class="nav-links">
+    <li><a href="/">Home</a></li>
+    <li><a href="/datacenters.html">Data Centers</a></li>
+    <li><a href="/donate.html">Donate</a></li>
+    <li><a href="/about.html">About</a></li>
+    <li><a href="/vote.html">How to Vote</a></li>
+    <li><a href="/connect.html" class="active">Get Involved</a></li>
+  </ul>
+</nav>
+<div class="page-header">
+  <h1>Stay in this with us.</h1>
+  <p>Sign up and tell us how you want to help. Every name matters before August 4.</p>
+</div>
+<div class="content">
+  <h2>Count me in.</h2>
+  <p class="intro">Tell us who you are and how you want to get involved. We will be in touch.</p>
+  <div class="form-group">
+    <label for="field-name">Your name</label>
+    <input type="text" id="field-name" placeholder="Full name" autocomplete="name">
+  </div>
+  <div class="form-group">
+    <label for="field-email">Your email</label>
+    <input type="email" id="field-email" placeholder="Email address" autocomplete="email">
+  </div>
+  <div class="checkboxes">
+    <p>I want to:</p>
+    <div class="checkbox-group">
+      <label><input type="checkbox" id="cb-volunteer"> Volunteer</label>
+      <label><input type="checkbox" id="cb-endorse"> Endorse Rachelle</label>
+      <label><input type="checkbox" id="cb-spread"> Spread the word</label>
+      <label><input type="checkbox" id="cb-donate"> Donate</label>
+    </div>
+  </div>
+  <button class="btn-primary" onclick="handleSignup()">Count me in</button>
+  <div class="form-confirm" id="form-confirm">You are in. We will be in touch before August 4.</div>
+</div>
+<footer>
+  <p>Paid for by People to Elect Rachelle Miller · PO Box 236, Liberty Lake WA 99019</p>
+</footer>
+<script>
+async function handleSignup(){
+  const name=document.getElementById('field-name').value.trim();
+  const email=document.getElementById('field-email').value.trim();
+  if(!name||!email){alert('Please enter your name and email.');return;}
+  const interests=[];
+  if(document.getElementById('cb-volunteer').checked) interests.push('Volunteer');
+  if(document.getElementById('cb-endorse').checked) interests.push('Endorse');
+  if(document.getElementById('cb-spread').checked) interests.push('Spread the word');
+  if(document.getElementById('cb-donate').checked) interests.push('Donate');
+  try{await fetch('https://formspree.io/f/mojoezlp',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({name,email,interests:interests.join(', ')})});}catch(e){}
+  document.querySelector('.content').style.opacity='0.5';
+  document.querySelector('.content').style.pointerEvents='none';
+  document.getElementById('form-confirm').style.display='block';
+}
+</script>
+</body>
+</html><body>
 <nav>
   <ul class="nav-links">
     <li><a href="/">Home</a></li>
