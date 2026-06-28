@@ -14,8 +14,8 @@ nav{background:#000;display:flex;align-items:center;justify-content:center;paddi
 .nav-links a:hover,.nav-links a.active{color:#CC0000;}
 .site-title{background:#CC0000;padding:2rem;text-align:center;}
 .title-inner{display:flex;flex-direction:column;align-items:center;gap:0.35rem;}
-.title-no{font-family:'Playfair Display',serif;font-size:clamp(2rem,6vw,3.5rem);font-weight:900;color:#fff;line-height:1;}
-.title-name{font-family:'Playfair Display',serif;font-size:clamp(1.2rem,3.5vw,2rem);font-weight:700;color:#fff;}
+.title-no{font-family:'Playfair Display',serif;font-size:clamp(1.4rem,4vw,2rem);font-weight:900;color:#fff;line-height:1;}
+.title-name{font-family:'Playfair Display',serif;font-size:clamp(2.5rem,7vw,4.5rem);font-weight:900;color:#002868;line-height:1.05;text-shadow:1px 1px 0 rgba(0,0,0,0.15);}
 .title-race{font-family:'Inter',sans-serif;font-size:0.82rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:rgba(255,255,255,0.85);}
 .title-divider{width:60px;height:2px;background:rgba(255,255,255,0.4);margin:0.3rem 0;}
 .hero{background:#fff;padding:4rem 2rem;display:flex;flex-wrap:wrap;gap:2rem;align-items:center;border-bottom:4px solid #CC0000;max-width:1100px;margin:0 auto;}
@@ -32,9 +32,62 @@ h1 em{font-style:italic;color:#CC0000;}
 .write-in-steps{list-style:none;counter-reset:step;}
 .write-in-steps li{counter-increment:step;display:flex;align-items:flex-start;gap:0.85rem;margin-bottom:1rem;color:#222;font-size:0.92rem;}
 .write-in-steps li::before{content:counter(step);flex-shrink:0;width:1.7rem;height:1.7rem;background:#CC0000;color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:0.75rem;font-weight:700;margin-top:0.1rem;}
+.write-in-name{font-weight:900;color:#002868;font-size:1.05rem;}
 footer{background:#CC0000;padding:1.5rem 2rem;text-align:center;}
 footer p{font-size:0.82rem;color:#fff;}
 @media(max-width:680px){.hero{padding:2.5rem 1.5rem;}}
+</style>
+</head>
+<body>
+<nav>
+  <ul class="nav-links">
+    <li><a href="/" class="active">Home</a></li>
+    <li><a href="/datacenters.html">Data Centers</a></li>
+    <li><a href="/donate.html">Donate</a></li>
+    <li><a href="/about.html">About</a></li>
+    <li><a href="/vote.html">How to Vote</a></li>
+    <li><a href="/connect.html">Get Involved</a></li>
+  </ul>
+</nav>
+<div class="site-title">
+  <div class="title-inner">
+    <span class="title-race">People to Elect</span>
+    <div class="title-divider"></div>
+    <span class="title-name">Rachelle Miller</span>
+    <div class="title-divider"></div>
+    <span class="title-no">Spokane County is not for sale.</span>
+    <div class="title-divider"></div>
+    <span class="title-race">Write In · Primary Election · August 4</span>
+    <div class="title-divider"></div>
+    <span class="title-race">County Commissioner · District 4 · Spokane County</span>
+  </div>
+</div>
+<div style="max-width:1100px;margin:0 auto;">
+<section class="hero">
+  <div class="hero-text">
+    <p class="hero-eyebrow">Spokane County Commissioner · District 4</p>
+    <h1>Spokane County<br>is <em>not for sale.</em></h1>
+    <p class="hero-sub">Data centers drain our water, spike our utility bills, pocket billions in tax breaks, and leave us with the consequences. They are coming for Spokane County. Rachelle Miller is running to stop them.</p>
+    <a href="/datacenters.html" class="btn-primary">Beat Back the Expansion</a>
+    <a href="/vote.html" class="btn-outline">How to Cast a Write-In Vote</a>
+  </div>
+  <div class="write-in-card">
+    <h2>Casting a Write-In Vote</h2>
+    <p>Your ballot will include a write-in line for County Commissioner. Here is how to make your vote count:</p>
+    <ol class="write-in-steps">
+      <li>Find the <strong>Spokane County Commissioner, District 4</strong> race on your ballot.</li>
+      <li>Select the <strong>write-in option</strong> by filling in the bubble or oval next to the blank line.</li>
+      <li>On the blank line, write <span class="write-in-name">Rachelle Miller</span>.</li>
+      <li>Return your ballot by mail or drop it at any official Spokane County drop box by 8 PM on August 4.</li>
+    </ol>
+  </div>
+</section>
+</div>
+<footer>
+  <p>Paid for by People to Elect Rachelle Miller · PO Box 236, Liberty Lake WA 99019</p>
+</footer>
+</body>
+</html>@media(max-width:680px){.hero{padding:2.5rem 1.5rem;}}
 </style>
 </head>
 <body>
