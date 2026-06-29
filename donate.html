@@ -71,7 +71,7 @@ footer p{font-size:0.82rem;color:#fff;}
 <script>
 let selectedAmount=50;
 function selectAmount(el,amount){document.querySelectorAll('.donate-amount').forEach(b=>b.classList.remove('selected'));el.classList.add('selected');selectedAmount=amount;}
-function handleDonate(){const url='#';if(url==='#'){alert('Donation link coming soon. To contribute by check: People to Elect Rachelle Miller, PO Box 236, Liberty Lake WA 99019.');return;}window.open(url+'?amount='+selectedAmount,'_blank');}
+function handleDonate(){window.open('https://secure.anedot.com/people-to-elect-rachelle-miller/donate','_blank');}
 </script>
 </body>
 </html>
