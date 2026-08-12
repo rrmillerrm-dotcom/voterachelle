@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100%" height="100%">
+  <!-- Red Octagon Stop Sign (Edge-to-Edge) -->
+  <polygon points="150,0 362,0 512,150 512,362 362,512 150,512 0,362 0,150" fill="#CC0000" />
+  
+  <!-- Outer White Border for High Contrast on Dark/Light Browser Tabs -->
+  <polygon points="150,12 362,12 500,150 500,362 362,500 150,500 12,362 12,150" fill="none" stroke="#FFFFFF" stroke-width="12" stroke-linejoin="round" />
+  
+  <!-- Bold Campaign Text -->
+  <text x="256" y="210" font-family="-apple-system, BlinkMacSystemFont, 'Inter', 'Arial Black', sans-serif" font-size="82" font-weight="900" fill="#FFFFFF" text-anchor="middle" letter-spacing="1">NO DATA</text>
+  <text x="256" y="295" font-family="-apple-system, BlinkMacSystemFont, 'Inter', 'Arial Black', sans-serif" font-size="82" font-weight="900" fill="#FFFFFF" text-anchor="middle" letter-spacing="1">CENTERS</text>
+  <text x="256" y="375" font-family="-apple-system, BlinkMacSystemFont, 'Inter', 'Arial Black', sans-serif" font-size="34" font-weight="800" fill="#FFFFFF" text-anchor="middle" letter-spacing="2">PROTECT OUR COMMUNITY</text>
+</svg>
